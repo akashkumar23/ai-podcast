@@ -81,7 +81,7 @@ const CreatePodcast = () => {
               name="podcastTitle"
               render={({ field }) => (
                 <FormItem className="flex flex-col gap-2.5">
-                  <FormLabel className="text-16 font-bold text-white-1">Username</FormLabel>
+                  <FormLabel className="text-16 font-bold text-white-1">Title</FormLabel>
                   <FormControl>
                     <Input className="input-class focus-visible:ring-orange-1" placeholder="Ai-podcast" {...field} />
                   </FormControl>
@@ -136,8 +136,18 @@ const CreatePodcast = () => {
           // !AI PART OF THE Form
           <div className="flex flex-col pt-10">
 
-              <GeneratePodcast/>
+              <GeneratePodcast
+                setAudioStorageId={setAudioStorageId}
+                setAudio = {setAudioUrl}
+                voiceType = {voiceType!}
+                audio = {audioUrl}
+                voicePrompt = {voicePrompt}
+                setVoicePrompt = {setVoicePrompt}
+                setAudioDuration = {setAudioDuration}
+              />
               <GenerateThumbnail/>
+
+
 
               <div className="mt-10 w-full">
                 <Button type="submit" className="text-16 w-full bg-orange-400 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-5">
