@@ -13,7 +13,7 @@ const LeftSidebar = () => {
 
     return (
         <div>
-            <section className='left_sidebar'>
+            <section className='left_sidebar h-screen'>
                 <nav className='flex flex-col gap-6'>
                     <Link
                         href={'/'}

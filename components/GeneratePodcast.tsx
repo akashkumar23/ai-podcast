@@ -100,14 +100,14 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
                 // !{/* <p className='text-white-1'>{voicePrompt}</p> */}
             </div>
             <div className='mt-5 w-full max-w-[200px]'>
-                <Button type="submit" onClick={generatePodcast} className="text-16  bg-orange-400 py-4 font-bold text-white-1 transition-all duration-500 hover:bg-black-5">
+                <Button type="submit" onClick={generatePodcast} className="text-16  bg-indigo-400 py-4 font-bold text-white-1 transition-all duration-500 hover:bg-black-5">
                     {isGenerating ? (
                         <>
                             Generating
                             <Loader size={20} className='animate-spin ml-2' />
                         </>
                     ) : (
-                        'Generate'
+                        'Generate Audio'
                     )}
                 </Button>
             </div>

@@ -72,10 +72,10 @@ const CreatePodcast = () => {
 
 
   return (
-    <section className="mt-10 border border-red-800 flex flex-col">
+    <section className="mt-10 flex flex-col">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 border border-yellow-300 w-full flex-col">
-          <div className="flex flex-col gap-[30px] border-b border-red-300 pb-10">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mt-12 w-full flex-col">
+          <div className="flex flex-col gap-[30px] border-b border-gray-800 pb-10">
             <FormField
               control={form.control}
               name="podcastTitle"
@@ -112,9 +112,7 @@ const CreatePodcast = () => {
                   />
                 )}
               </Select>
-
             </div>
-
             <FormField
               control={form.control}
               name="podcastDescription"
@@ -124,7 +122,6 @@ const CreatePodcast = () => {
                   <FormControl>
                     <Textarea 
                       className="input-class focus-visible:ring-orange-1" placeholder="Enter Description of your podcast" {...field} 
-
                     />
                   </FormControl>
                   <FormMessage className="text-white-1" />
@@ -150,7 +147,7 @@ const CreatePodcast = () => {
 
 
               <div className="mt-10 w-full">
-                <Button type="submit" className="text-16 w-full bg-orange-400 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-5">
+                <Button type="submit" className="text-16 w-full bg-indigo-400 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-5">
                   {isSubmitting ? (
                     <>
                     Submitting

@@ -15,8 +15,8 @@ export default function RootLayout({
             MAIN
             RIGHTSIDEBAR */}
             <LeftSidebar/>
-            <section className="border-2 border-red-700 flex min-h-screen flex-1 flex-col px-4 sm:px-14">
-                <div className="border-2 border-blue-500 mx-auto flex w-full mx-w-5xl flex-col max-sm:px-4">
+            <section className="flex min-h-screen flex-1 flex-col px-4 sm:px-14">
+                <div className="mx-auto flex w-full mx-w-5xl flex-col max-sm:px-4">
                     <div className="border-2 border-yellow-500 flex h-16 items-center justify-between md:hidden">
                         <Image
                             src='/icons/logo.svg'
