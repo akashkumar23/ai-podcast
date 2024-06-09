@@ -142,7 +142,13 @@ const CreatePodcast = () => {
                 setVoicePrompt = {setVoicePrompt}
                 setAudioDuration = {setAudioDuration}
               />
-              <GenerateThumbnail/>
+              <GenerateThumbnail
+                setImage = {setImageUrl}
+                setImageStorageId = {setImageStorageId}
+                image = {imageUrl}
+                imagePrompt = {imagePrompt}
+                setImagePrompt = {setImagePrompt}
+              />
 
 
 
