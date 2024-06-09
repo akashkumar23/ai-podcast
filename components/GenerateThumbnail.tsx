@@ -7,9 +7,10 @@ import { Loader } from 'lucide-react';
 import { GenerateThumbnailProps } from '@/types';
 import Image from 'next/image';
 import { useToast } from './ui/use-toast';
-import { useMutation } from 'convex/react';
+import { useAction, useMutation } from 'convex/react';
 import { useUploadFiles } from '@xixixao/uploadstuff/react';
 import { api } from '@/convex/_generated/api';
+import { v4 as uuidv4 } from 'uuid'
 
 const GenerateThumbnail = ({
   setImage, setImageStorageId, image, imagePrompt, setImagePrompt
@@ -21,6 +22,7 @@ const GenerateThumbnail = ({
   const generateUploadUrl = useMutation(api.files.generateUploadUrl);
     const { startUpload } = useUploadFiles(generateUploadUrl)
     const getImageUrl = useMutation(api.podcasts.getUrl);
+    const handleGenerateThumbnail = useAction(api.openai.generateThumbnailAction)
 
   const handleImage = async(blob: Blob, fileName: string) => {
     setisImageLoading(true);
@@ -48,7 +50,22 @@ const GenerateThumbnail = ({
   }
 
   //! this function is for openapi prompt thumbnail generation
-  const generateImage = () => {}
+  const generateImage = async () => {
+
+    try{
+      const response = await handleGenerateThumbnail({prompt: imagePrompt});
+    const blob = new Blob([response], {type: 'image/png'});
+    handleImage(blob, `thumbnail-${uuidv4()}`);
+    }catch(e){
+      console.log(e)
+      console.log('Handleimage/generateImage');
+      toast({
+        title: 'Error generating ai-thumbnail'
+      })
+    }
+
+    
+  }
 
   //! BELOW function is for custom thumbnail upload
   const uploadImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
